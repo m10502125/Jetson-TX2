@@ -24,7 +24,9 @@ def read_cam():
 	    img_gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 	    #Sobel operation.
 	    sobelx = cv2.Sobel(img_gray,cv2.CV_64F,1,0,ksize=5)
-	    cv2.imshow('sobelx',sobelx)
+	    cv2.imshow('Sobelx',sobelx)
+	    sobely = cv2.Sobel(img_gray,cv2.CV_64F,0,1,ksize=5)
+	    cv2.imshow('Sobely',sobely)
             cv2.waitKey(10)
             end=time.time();
             print (1/(end-start))
