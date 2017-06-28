@@ -9,9 +9,9 @@ def read_cam():
 
     cap = cv2.VideoCapture(1);
     #set image width.
-    cap.set(3,1280)
+    cap.set(3,640)
     #set image height.
-    cap.set(4,720);
+    cap.set(4,480);
     
     if cap.isOpened():
         cv2.namedWindow("demo", cv2.WINDOW_AUTOSIZE)
@@ -23,10 +23,13 @@ def read_cam():
 	    #Converter RGB image to grayscale image.
 	    img_gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 	    #Sobel operation.
-	    sobelx = cv2.Sobel(img_gray,cv2.CV_64F,1,0,ksize=5)
+	    sobelx = cv2.Sobel(img_gray,cv2.CV_64F,1,0,ksize=3)
 	    cv2.imshow('Sobelx',sobelx)
-	    sobely = cv2.Sobel(img_gray,cv2.CV_64F,0,1,ksize=5)
+	    sobely = cv2.Sobel(img_gray,cv2.CV_64F,0,1,ksize=3)
 	    cv2.imshow('Sobely',sobely)
+	    #Laplacian
+	    lap = cv2.Laplacian(img,cv2.CV_64F)
+	    cv2.imshow('Laplacian',lap)
             cv2.waitKey(10)
             end=time.time();
             print (1/(end-start))
