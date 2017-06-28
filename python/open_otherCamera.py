@@ -8,9 +8,9 @@ import numpy as np
 def read_cam():
 
     cap = cv2.VideoCapture(1);
-    '''cap.set(3,1920);
-    cap.set(4,1080);'''
-    cap.set(3,1280);
+    #set image width.
+    cap.set(3,1280)
+    #set image height.
     cap.set(4,720);
     
     if cap.isOpened():
